@@ -31,7 +31,7 @@ function App() {
           Welcome to My Portfolio
         </Title>
         <Text size="lg" mt="sm" align="center">
-          Hi, I'm Logan! I love exploring, learning, and meeting new people. Here are some of my projects!
+          Hi, I'm Logan! I love exploring, learning, and meeting new people. Here are some of my projects:
         </Text>
         <Group position="center" mt="lg">
           <Button component="a" href="#projects" variant="outline" color="gray">
