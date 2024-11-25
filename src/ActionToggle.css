@@ -1,0 +1,15 @@
+.icon {
+    transition: opacity 0.3s ease;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .light {
+    opacity: 1;
+  }
+  
+  .dark {
+    opacity: 0;
+  }
+  
