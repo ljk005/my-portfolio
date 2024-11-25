@@ -2,7 +2,7 @@
   "name": "portfolioljk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://<username>.github.io/my-portfolio",
+  "homepage": "https://ljk005.github.io/my-portfolio",
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@mantine/core": "^6.0.22",
@@ -20,8 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
