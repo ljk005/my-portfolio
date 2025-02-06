@@ -124,6 +124,9 @@ function App() {
                       ? 'rgba(255, 255, 255, 0.05)'
                       : 'rgba(0, 0, 0, 0.05)'
                   }`,
+                  maxWidth: '800px',
+                  margin: '0 auto',
+                  width: '100%',
                   '&:hover': {
                     transform: 'scale(1.01)',
                     boxShadow: theme.colorScheme === 'dark'
@@ -160,6 +163,9 @@ function App() {
                       ? 'rgba(255, 255, 255, 0.05)'
                       : 'rgba(0, 0, 0, 0.05)'
                   }`,
+                  maxWidth: '800px',
+                  margin: '0 auto',
+                  width: '100%',
                   '&:hover': {
                     transform: 'scale(1.01)',
                     boxShadow: theme.colorScheme === 'dark'
@@ -196,6 +202,9 @@ function App() {
                       ? 'rgba(255, 255, 255, 0.05)'
                       : 'rgba(0, 0, 0, 0.05)'
                   }`,
+                  maxWidth: '800px',
+                  margin: '0 auto',
+                  width: '100%',
                   '&:hover': {
                     transform: 'scale(1.01)',
                     boxShadow: theme.colorScheme === 'dark'
