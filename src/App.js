@@ -49,42 +49,6 @@ function App() {
               Hi, I'm Logan! I love exploring, learning, and meeting new people.
               Here are some of my projects!
             </Text>
-            <Group position="center" mt={40} spacing="md">
-              <Button
-                size="lg"
-                variant="gradient"
-                gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
-                sx={{
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
-                  },
-                }}
-                component="a"
-                href="#projects"
-              >
-                View Projects
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                sx={(theme) => ({
-                  borderColor: theme.colorScheme === 'dark' ? theme.colors.blue[4] : theme.colors.blue[6],
-                  color: theme.colorScheme === 'dark' ? theme.colors.blue[4] : theme.colors.blue[6],
-                  transition: 'all 0.2s ease',
-                  '&:hover': {
-                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.blue[9] : theme.colors.blue[0],
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
-                  },
-                })}
-                component="a"
-                href="mailto:ljk005@email.latech.edu"
-              >
-                Contact Me
-              </Button>
-            </Group>
           </div>
 
           <Card
@@ -518,6 +482,42 @@ function App() {
                 />
               </Card>
             </Card>
+          </Group>
+
+          <Group position="center" spacing="md">
+            <Button
+              size="lg"
+              variant="gradient"
+              gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
+              sx={{
+                transition: 'all 0.2s ease',
+                '&:hover': {
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
+                },
+              }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              View Projects
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              sx={(theme) => ({
+                borderColor: theme.colorScheme === 'dark' ? theme.colors.blue[4] : theme.colors.blue[6],
+                color: theme.colorScheme === 'dark' ? theme.colors.blue[4] : theme.colors.blue[6],
+                transition: 'all 0.2s ease',
+                '&:hover': {
+                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.blue[9] : theme.colors.blue[0],
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
+                },
+              })}
+              component="a"
+              href="mailto:ljk005@email.latech.edu"
+            >
+              Contact Me
+            </Button>
           </Group>
         </Stack>
       </Container>
