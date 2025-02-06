@@ -50,7 +50,7 @@ function App() {
                 size="lg"
                 variant="outline"
                 component="a"
-                href="mailto:logan.j.knies@gmail.com"
+                href="mailto:ljk005@email.latech.edu"
               >
                 Contact Me
               </Button>
@@ -139,6 +139,82 @@ function App() {
               View Source Code
             </Button>
           </Card>
+
+          <Group grow>
+            <Card
+              shadow="sm"
+              p="xl"
+              radius="md"
+              withBorder
+              sx={(theme) => ({
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
+                transition: 'transform 0.2s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                },
+              })}
+            >
+              <Title order={3} mb="md">Othello Game with AI</Title>
+              <Text size="lg" mb="md">
+                A Python implementation of the classic Othello/Reversi game with an AI opponent using minimax algorithm and alpha-beta pruning:
+              </Text>
+              <ul style={{ listStyleType: 'disc', marginLeft: '20px', marginBottom: '15px' }}>
+                <li>Graphical user interface using Tkinter</li>
+                <li>AI opponent with adjustable difficulty (search depth)</li>
+                <li>Minimax algorithm with alpha-beta pruning optimization</li>
+                <li>Move history tracking and replay</li>
+                <li>Debug mode for AI decision visualization</li>
+                <li>Position evaluation using weighted board heuristics</li>
+                <li>Support for both human and AI players</li>
+              </ul>
+              
+              <Card withBorder p="sm">
+                <Text weight={500} mb="xs">Game Interface</Text>
+                <img 
+                  src={`${process.env.PUBLIC_URL}/images/othello-gui.png`}
+                  alt="Othello Game Interface"
+                  style={{
+                    width: '100%',
+                    maxWidth: '400px',
+                    borderRadius: '4px',
+                    margin: '0 auto',
+                    display: 'block'
+                  }}
+                />
+              </Card>
+              
+              <Button 
+                component="a"
+                href="https://github.com/ljk005/Othello-AI"
+                variant="gradient"
+                gradient={{ from: 'blue', to: 'cyan' }}
+                fullWidth
+                mt="xl"
+              >
+                View Source Code
+              </Button>
+            </Card>
+
+            <Card
+              shadow="sm"
+              p="xl"
+              radius="md"
+              withBorder
+              sx={(theme) => ({
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
+                transition: 'transform 0.2s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                },
+              })}
+            >
+              <Title order={3} mb="md">New Project</Title>
+              <Text size="lg" mb="md">
+                Description of your new project will go here.
+              </Text>
+              {/* Add content for your new project card */}
+            </Card>
+          </Group>
         </Stack>
       </Container>
       <ActionToggle />
