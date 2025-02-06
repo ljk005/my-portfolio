@@ -10,8 +10,18 @@ function App() {
         minHeight: '100vh',
         transition: 'all 0.3s ease',
         backgroundImage: theme.colorScheme === 'dark'
-          ? 'radial-gradient(circle at 50% 0%, rgba(25, 113, 194, 0.15), rgba(0, 0, 0, 0) 70%), radial-gradient(circle at 0% 0%, rgba(34, 139, 230, 0.1), rgba(0, 0, 0, 0) 50%)'
-          : 'radial-gradient(circle at 50% 0%, rgba(25, 113, 194, 0.1), rgba(255, 255, 255, 0) 70%), radial-gradient(circle at 0% 0%, rgba(34, 139, 230, 0.05), rgba(255, 255, 255, 0) 50%)',
+          ? `
+            radial-gradient(circle at 50% 0%, rgba(25, 113, 194, 0.15), rgba(0, 0, 0, 0) 50%),
+            radial-gradient(circle at 0% 0%, rgba(34, 139, 230, 0.1), rgba(0, 0, 0, 0) 40%),
+            radial-gradient(circle at 100% 0%, rgba(56, 178, 172, 0.1), rgba(0, 0, 0, 0) 40%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)
+          `
+          : `
+            radial-gradient(circle at 50% 0%, rgba(25, 113, 194, 0.08), rgba(255, 255, 255, 0) 50%),
+            radial-gradient(circle at 0% 0%, rgba(34, 139, 230, 0.05), rgba(255, 255, 255, 0) 40%),
+            radial-gradient(circle at 100% 0%, rgba(56, 178, 172, 0.05), rgba(255, 255, 255, 0) 40%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.03) 100%)
+          `,
       })}
     >
       <Container size="lg" py={100}>
@@ -22,13 +32,16 @@ function App() {
               sx={(theme) => ({
                 fontSize: '4.5rem',
                 background: theme.colorScheme === 'dark'
-                  ? 'linear-gradient(45deg, #4dabf7 10%, #228be6 90%)'
-                  : 'linear-gradient(45deg, #228be6 10%, #1c7ed6 90%)',
+                  ? 'linear-gradient(135deg, #4dabf7 0%, #228be6 50%, #38b2ac 100%)'
+                  : 'linear-gradient(135deg, #228be6 0%, #1c7ed6 50%, #319795 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginBottom: '1.5rem',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
+                textShadow: theme.colorScheme === 'dark'
+                  ? '0 0 30px rgba(77, 171, 247, 0.2)'
+                  : '0 0 30px rgba(34, 139, 230, 0.2)',
                 '@media (max-width: 768px)': {
                   fontSize: '2.5rem',
                 },
@@ -54,17 +67,28 @@ function App() {
           <Card
             shadow="sm"
             p="xl"
-            radius="md"
+            radius="lg"
             withBorder
             sx={(theme) => ({
-              backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
-              transition: 'transform 0.2s ease',
+              backgroundColor: theme.colorScheme === 'dark' 
+                ? 'rgba(37, 38, 43, 0.7)' 
+                : 'rgba(255, 255, 255, 0.9)',
+              backdropFilter: 'blur(12px)',
+              border: `1px solid ${
+                theme.colorScheme === 'dark' 
+                  ? 'rgba(255, 255, 255, 0.1)' 
+                  : 'rgba(0, 0, 0, 0.1)'
+              }`,
+              transition: 'all 0.3s ease',
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               '&:hover': {
                 transform: 'translateY(-5px)',
+                boxShadow: theme.colorScheme === 'dark'
+                  ? '0 20px 40px rgba(0, 0, 0, 0.5)'
+                  : '0 20px 40px rgba(0, 0, 0, 0.1)',
               },
             })}
           >
@@ -90,10 +114,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -104,7 +139,9 @@ function App() {
                   style={{
                     width: '100%',
                     maxWidth: '600px',
-                    borderRadius: '4px'
+                    borderRadius: '4px',
+                    margin: '0 auto',
+                    display: 'block'
                   }}
                 />
               </Card>
@@ -113,10 +150,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -127,7 +175,9 @@ function App() {
                   style={{
                     width: '100%',
                     maxWidth: '600px',
-                    borderRadius: '4px'
+                    borderRadius: '4px',
+                    margin: '0 auto',
+                    display: 'block'
                   }}
                 />
               </Card>
@@ -136,10 +186,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -150,10 +211,13 @@ function App() {
                   style={{
                     width: '100%',
                     maxWidth: '600px',
-                    borderRadius: '4px'
+                    borderRadius: '4px',
+                    margin: '0 auto',
+                    display: 'block'
                   }}
                 />
               </Card>
+
             </Stack>
             
             <Button 
@@ -201,17 +265,28 @@ function App() {
             <Card
               shadow="sm"
               p="xl"
-              radius="md"
+              radius="lg"
               withBorder
               sx={(theme) => ({
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
-                transition: 'transform 0.2s ease',
+                backgroundColor: theme.colorScheme === 'dark' 
+                  ? 'rgba(37, 38, 43, 0.7)' 
+                  : 'rgba(255, 255, 255, 0.9)',
+                backdropFilter: 'blur(12px)',
+                border: `1px solid ${
+                  theme.colorScheme === 'dark' 
+                    ? 'rgba(255, 255, 255, 0.1)' 
+                    : 'rgba(0, 0, 0, 0.1)'
+                }`,
+                transition: 'all 0.3s ease',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-5px)',
+                  boxShadow: theme.colorScheme === 'dark'
+                    ? '0 20px 40px rgba(0, 0, 0, 0.5)'
+                    : '0 20px 40px rgba(0, 0, 0, 0.1)',
                 },
               })}
             >
@@ -233,10 +308,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -275,17 +361,28 @@ function App() {
             <Card
               shadow="sm"
               p="xl"
-              radius="md"
+              radius="lg"
               withBorder
               sx={(theme) => ({
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
-                transition: 'transform 0.2s ease',
+                backgroundColor: theme.colorScheme === 'dark' 
+                  ? 'rgba(37, 38, 43, 0.7)' 
+                  : 'rgba(255, 255, 255, 0.9)',
+                backdropFilter: 'blur(12px)',
+                border: `1px solid ${
+                  theme.colorScheme === 'dark' 
+                    ? 'rgba(255, 255, 255, 0.1)' 
+                    : 'rgba(0, 0, 0, 0.1)'
+                }`,
+                transition: 'all 0.3s ease',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-5px)',
+                  boxShadow: theme.colorScheme === 'dark'
+                    ? '0 20px 40px rgba(0, 0, 0, 0.5)'
+                    : '0 20px 40px rgba(0, 0, 0, 0.1)',
                 },
               })}
             >
@@ -307,10 +404,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -374,17 +482,28 @@ function App() {
             <Card
               shadow="sm"
               p="xl"
-              radius="md"
+              radius="lg"
               withBorder
               sx={(theme) => ({
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
-                transition: 'transform 0.2s ease',
+                backgroundColor: theme.colorScheme === 'dark' 
+                  ? 'rgba(37, 38, 43, 0.7)' 
+                  : 'rgba(255, 255, 255, 0.9)',
+                backdropFilter: 'blur(12px)',
+                border: `1px solid ${
+                  theme.colorScheme === 'dark' 
+                    ? 'rgba(255, 255, 255, 0.1)' 
+                    : 'rgba(0, 0, 0, 0.1)'
+                }`,
+                transition: 'all 0.3s ease',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-5px)',
+                  boxShadow: theme.colorScheme === 'dark'
+                    ? '0 20px 40px rgba(0, 0, 0, 0.5)'
+                    : '0 20px 40px rgba(0, 0, 0, 0.1)',
                 },
               })}
             >
@@ -405,10 +524,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -430,17 +560,28 @@ function App() {
             <Card
               shadow="sm"
               p="xl"
-              radius="md"
+              radius="lg"
               withBorder
               sx={(theme) => ({
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
-                transition: 'transform 0.2s ease',
+                backgroundColor: theme.colorScheme === 'dark' 
+                  ? 'rgba(37, 38, 43, 0.7)' 
+                  : 'rgba(255, 255, 255, 0.9)',
+                backdropFilter: 'blur(12px)',
+                border: `1px solid ${
+                  theme.colorScheme === 'dark' 
+                    ? 'rgba(255, 255, 255, 0.1)' 
+                    : 'rgba(0, 0, 0, 0.1)'
+                }`,
+                transition: 'all 0.3s ease',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 '&:hover': {
                   transform: 'translateY(-5px)',
+                  boxShadow: theme.colorScheme === 'dark'
+                    ? '0 20px 40px rgba(0, 0, 0, 0.5)'
+                    : '0 20px 40px rgba(0, 0, 0, 0.1)',
                 },
               })}
             >
@@ -461,10 +602,21 @@ function App() {
                 withBorder 
                 p="sm"
                 sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-                  transition: 'all 0.2s ease',
+                  backgroundColor: theme.colorScheme === 'dark' 
+                    ? 'rgba(26, 27, 30, 0.7)'
+                    : 'rgba(248, 249, 250, 0.7)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease',
+                  border: `1px solid ${
+                    theme.colorScheme === 'dark'
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.05)'
+                  }`,
                   '&:hover': {
                     transform: 'scale(1.01)',
+                    boxShadow: theme.colorScheme === 'dark'
+                      ? '0 8px 20px rgba(0, 0, 0, 0.3)'
+                      : '0 8px 20px rgba(0, 0, 0, 0.1)',
                   },
                 })}
               >
@@ -488,12 +640,17 @@ function App() {
             <Button
               size="lg"
               variant="gradient"
-              gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
+              gradient={(theme) => ({ 
+                from: theme.colorScheme === 'dark' ? '#4dabf7' : '#228be6',
+                to: '#38b2ac',
+                deg: 135
+              })}
               sx={{
-                transition: 'all 0.2s ease',
+                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(8px)',
                 '&:hover': {
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
+                  boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
                 },
               }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
