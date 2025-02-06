@@ -91,7 +91,7 @@ function App() {
               <Card withBorder p="sm">
                 <Text weight={500} mb="xs">Training Progress</Text>
                 <img 
-                  src="/images/training-output.png" 
+                  src={`${process.env.PUBLIC_URL}/images/training-output.png`}
                   alt="Neural Network Training"
                   style={{
                     width: '100%',
@@ -104,7 +104,7 @@ function App() {
               <Card withBorder p="sm">
                 <Text weight={500} mb="xs">Digit Recognition Example</Text>
                 <img 
-                  src="/images/digit-recognition.png" 
+                  src={`${process.env.PUBLIC_URL}/images/digit-recognition.png`}
                   alt="Digit Recognition Example"
                   style={{
                     width: '100%',
@@ -117,7 +117,7 @@ function App() {
               <Card withBorder p="sm">
                 <Text weight={500} mb="xs">Accuracy Statistics</Text>
                 <img 
-                  src="/images/accuracy-stats.png" 
+                  src={`${process.env.PUBLIC_URL}/images/accuracy-stats.png`}
                   alt="Accuracy Statistics"
                   style={{
                     width: '100%',
