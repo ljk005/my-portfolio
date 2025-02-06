@@ -3,18 +3,26 @@ import { ActionIcon, Group, useMantineColorScheme } from '@mantine/core';
 import './ActionToggle.css';  // Assuming the CSS file is here
 
 export function ActionToggle() {
-  const { colorScheme, setColorScheme } = useMantineColorScheme();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === 'dark';
 
   return (
-    <Group justify="center">
+    <Group position="center" my="xl">
       <ActionIcon
-        onClick={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')}
-        variant="default"
-        size="xl"
-        aria-label="Toggle color scheme"
+        onClick={() => toggleColorScheme()}
+        size="lg"
+        sx={(theme) => ({
+          backgroundColor: dark ? theme.colors.dark[6] : theme.colors.gray[0],
+          color: dark ? theme.colors.yellow[4] : theme.colors.blue[6],
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          '&:hover': {
+            backgroundColor: dark ? theme.colors.dark[5] : theme.colors.gray[1],
+          },
+        })}
       >
-        <IconSun className={`icon ${colorScheme === 'light' ? 'light' : 'hidden'}`} stroke={1.5} />
-        <IconMoon className={`icon ${colorScheme === 'dark' ? 'dark' : 'hidden'}`} stroke={1.5} />
+        {dark ? <IconSun size="1.2rem" /> : <IconMoon size="1.2rem" />}
       </ActionIcon>
     </Group>
   );
