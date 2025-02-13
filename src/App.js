@@ -231,7 +231,7 @@ function App() {
             
             <Button 
               component="a"
-              href="https://github.com/ljk005"
+              href="https://github.com/ljk005/MNIST-Neural-Network"
               variant="gradient"
               gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
               fullWidth
@@ -351,7 +351,7 @@ function App() {
               
               <Button 
                 component="a"
-                href="https://github.com/ljk005/Othello-AI"
+                href="https://github.com/ljk005/OthelloGame"
                 variant="gradient"
                 gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
                 fullWidth
@@ -447,7 +447,7 @@ function App() {
               
               <Button 
                 component="a"
-                href="https://github.com/ljk005/AccessControlProject"
+                href="https://github.com/SadieStaar/AccessControlProject"
                 variant="gradient"
                 gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
                 fullWidth
